@@ -2,7 +2,7 @@ from phe import paillier
 import random 
 from rrns_utils import number_to_rrns, rrns_to_number
 from sss_utils import create_shares, reconstruct_from_shares 
-from acca import generate_rrns_moduli, generate_prime_for_sss, format_encrypted_number
+from general_utils import generate_rrns_moduli, generate_prime_for_sss, format_encrypted_number
 
 
 # ====================================================================

@@ -135,8 +135,8 @@ reconstructed_S_attacker = rrns_to_number(rems_subset_attacker, mods_subset_atta
 print(f"   Partecipanti: {auth_subset_attacker} (residuo {stolen_idx} è quello vecchio rubato)")
 print(f"   Residui usati: {rems_subset_attacker}")
 print(f"   Ricostruisce: {reconstructed_S_attacker}")
-print(f"   Corrisponde a S? {reconstructed_S_attacker == secret}")
-print(f"   Corrisponde a S'? {reconstructed_S_attacker == S_refreshed}")
+print(f"   Corrisponde a S? {secret} {reconstructed_S_attacker == secret}")
+print(f"   Corrisponde a S'? {S_refreshed} {reconstructed_S_attacker == S_refreshed}")
 
 
 
@@ -148,10 +148,10 @@ mods_subset = [participants[idx]["mod"] for idx in auth_subset]
 rems_subset = [participants[idx]["residue_plain_new"] for idx in auth_subset]
 reconstructed_S_partial = rrns_to_number(rems_subset, mods_subset)
 
-print(f"\n3) Ricostruzione con t - 1 nuovi residui {auth_subset}:")
+print(f"\n2) Ricostruzione con t - 1 nuovi residui {auth_subset}:")
 print("   Ricostruisce parzialmente S_refreshed =", reconstructed_S_partial)
-print(f"   Corrisponde a S ? {reconstructed_S_partial==secret}")
-print(f"   Corrisponde a S' ? {reconstructed_S_partial==S_refreshed}")
+print(f"   Corrisponde a S ? {secret} {reconstructed_S_partial==secret}")
+print(f"   Corrisponde a S' ? {S_refreshed} {reconstructed_S_partial==S_refreshed}")
 
 
 
@@ -163,7 +163,7 @@ auth_rems_new = [participants[i]["residue_plain_new"] for i in auth_subset]
 reconstructed_S_refreshed_auth = rrns_to_number(auth_rems_new, auth_mods)
 reconstructed_S_final = (reconstructed_S_refreshed_auth - K) % M_total
 
-print(f"\n4) Ricostruzione con t autorizzati (indici {auth_subset}):")
+print(f"\n3) Ricostruzione con t autorizzati (indici {auth_subset}):")
 print("   Ricostruiscono S_refreshed =", reconstructed_S_refreshed_auth)
 print("   Sottraggono K -> S =", reconstructed_S_final)
 
